@@ -1,0 +1,19 @@
+{
+  "name": "time-to-read",
+  "version": "1.0.0",
+  "description": "A time to read module for articles",
+  "main": "index.js",
+  "module": "ttr.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "time",
+    "to",
+    "read",
+    "module"
+  ],
+  "author": "Bigors Gábor <gabeszmaister@gmail.com>",
+  "license": "MIT"
+}
