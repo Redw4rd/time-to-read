@@ -1,23 +1,28 @@
-// Speed means the wpm (Words per minute), the number of words that an adult can read in one minute interval
-const ttr = (function ttr(text, options) {
-    // Default settings
-    let opts = {
-        speed: 200,
-        min_words_under_min: 360,
-        text_to_print: 'minutes to read.'
+class timeToRead {
+
+    words = Array;
+    time = Object;
+    text = "";
+
+    settings = {
+        reading_speed: 200
     };
-    Object.assign(opts, options);
 
-    let words = [];
+    constructor(settings) {
+        Object.assign(this.settings, settings);
+    }
 
-    words = text.match(/\b[a-zA-Z0-9_-]+\b/g);
-    
-    let required_min = Math.floor(words.length / opts.speed);
+    textToWords() {
+        this.words = this.text.match(/([A-Za-z0-9_\-\'])+/g);
+    }
 
-    if (words.length < opts.min_words_under_min)
-        required_min = 1;
+    getTime(){
+        return this.time = {
+            minutes: this.min = Math.floor(this.words.length / this.settings.reading_speed),
+            seconds: Math.floor(60 / (this.settings.reading_speed / (this.words.length % this.settings.reading_speed)))
+        };
+    }
 
-    return required_min + " " + opts.text_to_print;
-});
+}
 
-export default ttr;
+export { timeToRead };
